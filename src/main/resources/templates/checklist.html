@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+       
+    </style>
+</head>
+
+<body>
+    <script src="path/to/swiper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Swiper 스크립트 로드 위치 -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Swiper 컨테이너 -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- 첫 번째 체크 게시판 슬라이드 -->
+            <div class="swiper-slide" th:each="volunList : ${volunList}">
+                <div>
+                    <div class="div1" th:text="${volunList.listname}"></div>
+                    <div class="div2" th:text="${volunList.note}"></div>
+                    <div class="div3" th:text="${volunList.time}"></div>
+                    <div class="div4" th:text="${volunList.place}"></div>
+                </div>
+                <table class="table2">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>이름</th>
+                            <th>폰번호</th>
+                            <th>도착 정보</th>
+                            <th>도착시간</th>
+                            <th>비고</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="check : ${checks}">
+                            <td th:text="${check.id}"></td>
+                            <td th:text="${check.name}"></td>
+                            <td th:text="${check.phone}"></td>
+                            <td>
+                                <a th:href="@{/toggleArrival/{id}(id=${check.id})}">
+                                    <span th:if="${check.arr eq '도착예정'}">⚪</span>
+                                    <span th:if="${check.arr eq '도착'}">⚫</span>
+                                </a>
+                            </td>
+                            <td th:text="${check.arrtime != null ? #temporals.format(check.arrtime, 'yyyy-MM-dd HH:mm:ss') : ''}"></td>
+                            <td th:text="${check.memo}"></td>
+                            <td><a th:href="@{/edit/{id}(id=${check.id})}">수정</a></td>
+                            <td><a th:href="@{/delete/{id}(id=${check.id})}" onclick="return confirm('정말로 삭제하시겠습니까?')">삭제</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="/create">작성</a><br>
+            	<a href="/listcreate">게시판 정보 작성</a>
+            </div>
+            <!-- 두 번째 체크 게시판 슬라이드 -->
+            <div class="swiper-slide" th:each="volunList2 : ${volunList2}">
+                <div>
+                    <div class="div1" th:text="${volunList2.listname}"></div>
+                    <div class="div2" th:text="${volunList2.note}"></div>
+                    <div class="div3" th:text="${volunList2.time}"></div>
+                    <div class="div4" th:text="${volunList2.place}"></div>
+                </div>
+                <table class="table2">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>이름</th>
+                            <th>폰번호</th>
+                            <th>도착 정보</th>
+                            <th>도착시간</th>
+                            <th>비고</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="check2 : ${checks2}">
+                            <td th:text="${check2.id}"></td>
+                            <td th:text="${check2.name}"></td>
+                            <td th:text="${check2.phone}"></td>
+                            <td>
+                                <a th:href="@{/toggleArrival2/{id}(id=${check2.id})}">
+                                    <span th:if="${check2.arr eq '도착예정'}">⚪</span>
+                                    <span th:if="${check2.arr eq '도착'}">⚫</span>
+                                </a>
+                            </td>
+                            <td th:text="${check2.arrtime != null ? #temporals.format(check2.arrtime, 'yyyy-MM-dd HH:mm:ss') : ''}"></td>
+                            <td th:text="${check2.memo}"></td>
+                            <td><a th:href="@{/edit2/{id}(id=${check2.id})}">수정</a></td>
+                            <td><a th:href="@{/delete2/{id}(id=${check2.id})}" onclick="return confirm('정말로 삭제하시겠습니까?')">삭제</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="/create2">작성</a><br>
+            	<a href="/listcreate2">게시판 정보 작성</a>
+            </div>
+            <!-- 세 번째 체크 게시판 슬라이드 -->
+            <div class="swiper-slide" th:each="volunList3 : ${volunList3}">
+                <div>
+                    <div class="div1" th:text="${volunList3.listname}"></div>
+                    <div class="div2" th:text="${volunList3.note}"></div>
+                    <div class="div3" th:text="${volunList3.time}"></div>
+                    <div class="div4" th:text="${volunList3.place}"></div>
+                </div>
+                <table class="table2">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>이름</th>
+                            <th>폰번호</th>
+                            <th>도착 정보</th>
+                            <th>도착시간</th>
+                            <th>비고</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="check3 : ${checks3}">
+                            <td th:text="${check3.id}"></td>
+                            <td th:text="${check3.name}"></td>
+                            <td th:text="${check3.phone}"></td>
+                            <td>
+                                <a th:href="@{/toggleArrival3/{id}(id=${check3.id})}">
+                                    <span th:if="${check3.arr eq '도착예정'}">⚪</span>
+                                    <span th:if="${check3.arr eq '도착'}">⚫</span>
+                                </a>
+                            </td>
+                            <td th:text="${check3.arrtime != null ? #temporals.format(check3.arrtime, 'yyyy-MM-dd HH:mm:ss') : ''}"></td>
+                            <td th:text="${check3.memo}"></td>
+                            <td><a th:href="@{/edit3/{id}(id=${check3.id})}">수정</a></td>
+                            <td><a th:href="@{/delete3/{id}(id=${check3.id})}" onclick="return confirm('정말로 삭제하시겠습니까?')">삭제</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="/create3">작성</a><br>
+            	<a href="/listcreate3">게시판 정보 작성</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('.arrival-btn').click(function () {
+                var btn = $(this);
+                var id = btn.data('id');
+                var currentStatus = btn.data('arrival-status');
+                var newStatus = currentStatus === '도착예정' ? '도착' : '도착예정';
+                $.post("/updateArrival", { id: id, newArrivalStatus: newStatus }, function () {
+                    btn.data('arrival-status', newStatus);
+                    btn.html(newStatus === '도착예정' ? '⚪' : '⚫');
+                });
+            });
+        });
+    </script>
+    <!-- Swiper 스크립트 초기화 -->
+    <script>
+    var mySwiper = new Swiper('.swiper-container', {
+    	  pagination: {
+    	    el: '.swiper-pagination',
+    	    type: 'bullets',
+    	  },
+    	});
+    </script>
+</body>
+</html>

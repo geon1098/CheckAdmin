@@ -14,15 +14,15 @@
 
 # API 설계
 
-게시판 정보 생성 : /listcreate
-게시판 정보 생성2 : /listcreate2
-사용자 정보 생성 : /create
-사용자 정보 생성2 : /create2
-사용자 정보 수정 : /edit/{id}
-사용자 정보 수정2 : /edit2/{id}
-사용자 정보 삭제 : /delete/{id}
-사용자 정보 삭제2 : /delete2/{id}
-사용자 도착 정보 갱신 : /updateArrival
+- **게시판 정보 생성** : /listcreate<br>
+- **게시판 정보 생성2** : /listcreate2<br>
+- **사용자 정보 생성** : /create<br>
+- **사용자 정보 생성2** : /create2<br>
+- **사용자 정보 수정** : /edit/{id}<br>
+- **사용자 정보 수정2** : /edit2/{id}<br>
+- **사용자 정보 삭제** : /delete/{id}<br>
+- **사용자 정보 삭제2** : /delete2/{id}<br>
+- **사용자 도착 정보 갱신** : /updateArrival<br>
 
 
 # 화면 구현

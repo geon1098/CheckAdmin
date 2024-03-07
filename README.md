@@ -33,6 +33,8 @@
 <h4>봉사자 리스트 화면(style css 미구현)</h4>
 봉사자 도착정보 ○ :도착예정, ● :도착 표시로 했습니다.
 
+화면처럼 도착정보의  '○'가 '●'로 변하면 데이터베이스에 클릭한 시간과 도착정보 인덱스에 '도착'으로 갱신이 됩니다.
+
 ![메인](https://raw.githubusercontent.com/geon1098/IMG_project-1/main/crewe.png)
 
 <h4>봉사자 리스트2 슬라이드로 넘긴 화면(style css 미구현)</h4>
